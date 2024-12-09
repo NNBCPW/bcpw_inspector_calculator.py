@@ -26,23 +26,23 @@ st.markdown(f"### BM + HI: {bm_plus_hi:.2f} ft")
 
 proposed_elevation = st.number_input("Proposed Elevation (ft)", value=0.0, step=0.01)
 
-# Dropdowns for street section cuts (C16-C20 equivalent)
-layer_options = ["", "Pre Lime Subgrade", "Post Lime Subgrade", "Sand", "Dirt", "Rock", "Base", "Asphalt", "Concrete", "Curb", "Inlet"]
-layer_thicknesses = [
-    st.selectbox(f"Layer {i+1} Type (inches)", options=layer_options, index=0, format_func=lambda x: x or "None")
-    for i in range(5)
-]
+# Dropdowns and inline thickness inputs for layers
+layer_options = ["Pre Lime Subgrade", "Post Lime Subgrade", "Sand", "Dirt", "Rock", "Base", "Asphalt", "Concrete", "Curb", "Inlet"]
+layer_thicknesses = []
 
-# Convert dropdowns to thickness values (assuming all dropdown options give integer thickness; adjust logic as needed)
-layer_values = [
-    st.number_input(f"Thickness of {layer} (inches)", value=0, step=1) if layer else 0
-    for layer in layer_thicknesses
-]
+st.markdown("### Layer Inputs")
+for i in range(1, 6):
+    cols = st.columns([3, 1])  # Adjust column widths for dropdown and input
+    with cols[0]:
+        layer_type = st.selectbox(f"Layer {i} Type:", options=["None"] + layer_options, key=f"layer_{i}_type")
+    with cols[1]:
+        thickness = st.number_input(f"Inches:", value=0, step=1, key=f"layer_{i}_thickness")
+        layer_thicknesses.append(thickness)
 
 # Calculate the results
 if st.button("Calculate"):
     bm_plus_hi, total_in_inches, total_in_feet, rod_reading = calculate_set_length(
-        benchmark, height_of_instrument, proposed_elevation, layer_values
+        benchmark, height_of_instrument, proposed_elevation, layer_thicknesses
     )
 
     st.markdown(f"### Total Layer Thickness: {total_in_inches:.2f} inches ({total_in_feet:.2f} ft)")
