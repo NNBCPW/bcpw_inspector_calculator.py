@@ -13,7 +13,8 @@ def calculate_set_length(benchmark, height_of_instrument, proposed_elevation, la
     return bm_plus_hi, total_layer_thickness_in_inches, total_layer_thickness_in_feet, rod_reading
 
 # Streamlit app
-st.title("BCPW CONST INSPECTOR ELEVATIONS CALCULATOR")
+st.markdown("<h2 style='text-align: center;'>BCPW Elevation Calc</h2>", unsafe_allow_html=True)
+
 
 # Input fields
 station_number = st.text_input("Station Number:")
