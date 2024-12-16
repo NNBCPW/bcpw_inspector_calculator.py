@@ -48,10 +48,10 @@ if st.button("Calculate"):
 
     st.markdown(f"### Total Layer Thickness: {total_in_inches:.2f} inches ({total_in_feet:.2f} ft)")
     st.markdown(f"### Rod Reading: {rod_reading:.2f} ft")
-# Footer function
+    # Footer Function
 def add_created_by(email_address, app_name, author_name="NN"):
     """
-    Adds a "Created by" section with an email link to a Streamlit app.
+    Adds a "Created by" section with an email link to a Streamlit app, centered with a white text on black background.
 
     Args:
         email_address (str): The email address to send feedback to.
@@ -63,16 +63,25 @@ def add_created_by(email_address, app_name, author_name="NN"):
         <style>
         .created-by {{
             position: fixed;
-            bottom: 10px;
+            bottom: 0px;
             width: 100%;
+            background-color: black;
+            color: white;
             text-align: center;
-            font-size: 12px;
-            color: gray;
+            font-size: 14px;
+            padding: 10px 0;
+        }}
+        .created-by a {{
+            color: white;
+            text-decoration: none;
+        }}
+        .created-by a:hover {{
+            text-decoration: underline;
         }}
         </style>
         <div class="created-by">
             Created by: {author_name} <br>
-            <a href="mailto:{email_address}?subject=Feedback%20on%20{app_name}&body=Hello,%0A%0AI%20would%20like%20to%20provide%20feedback%20on%20the%20app%20{app_name}.%0A%0A" style="color: blue; text-decoration: none;">
+            <a href="mailto:{email_address}?subject=Feedback%20on%20{app_name}&body=Hello,%0A%0AI%20would%20like%20to%20provide%20feedback%20on%20the%20app%20{app_name}.%0A%0A">
                 For support, please email me. Thanks!
             </a>
         </div>
@@ -80,9 +89,3 @@ def add_created_by(email_address, app_name, author_name="NN"):
         unsafe_allow_html=True,
     )
 
-# Call the footer function
-add_created_by(
-    email_address="Nicholas.nabholz@bexar.org",
-    app_name="BCPW Elevation Calc",
-    author_name="NN"
-)
