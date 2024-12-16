@@ -48,12 +48,10 @@ if st.button("Calculate"):
 
     st.markdown(f"### Total Layer Thickness: {total_in_inches:.2f} inches ({total_in_feet:.2f} ft)")
     st.markdown(f"### Rod Reading: {rod_reading:.2f} ft")
-# Add "Created by" text at the very bottom
-st.markdown(
-    """
-    <div style="text-align: center; font-size: 12px; margin-top: 20px; color: gray;">
-        Created by: NN
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+def add_footer(app_name):
+    st.write("---")
+    st.write("Created by: NN")
+    st.markdown(
+        f"For support, please [email me](mailto:nicholas.nabholz@bexar.org?subject=Support%20for%20{app_name.replace(' ', '%20')})."
+    )
+
