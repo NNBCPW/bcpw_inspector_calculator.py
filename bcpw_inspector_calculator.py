@@ -48,10 +48,12 @@ if st.button("Calculate"):
 
     st.markdown(f"### Total Layer Thickness: {total_in_inches:.2f} inches ({total_in_feet:.2f} ft)")
     st.markdown(f"### Rod Reading: {rod_reading:.2f} ft")
-def add_footer(app_name):
-    st.write("---")
-    st.write("Created by: NN")
-    st.markdown(
-        f"For support, please [email me](mailto:nicholas.nabholz@bexar.org?subject=Support%20for%20{app_name.replace(' ', '%20')})."
-    )
+# Main app code
+st.title("Your Streamlit App")
 
+# Add the footer
+add_created_by(
+    email_address="your_email@example.com",
+    app_name="Your Streamlit App",
+    author_name="NN"
+)
