@@ -55,7 +55,7 @@ st.markdown(
         Created by: NN <br>
         <a href="mailto:Nicholas.nabholz@bexar.org?subject=Feedback%20on%20BCPW%20Elevation%20Calc&body=Hello,%0A%0AI%20would%20like%20to%20provide%20feedback%20on%20the%20app.%0A%0A" 
            style="color: white; text-decoration: none;">
-            For support, please email me. Thanks!
+            For support, please Click me. Thanks!
         </a>
     </div>
     """,
