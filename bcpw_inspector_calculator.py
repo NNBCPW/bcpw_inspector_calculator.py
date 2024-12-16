@@ -48,8 +48,6 @@ if st.button("Calculate"):
 
     st.markdown(f"### Total Layer Thickness: {total_in_inches:.2f} inches ({total_in_feet:.2f} ft)")
     st.markdown(f"### Rod Reading: {rod_reading:.2f} ft")
-Footer Function 
-
 # Footer function
 def add_created_by(email_address, app_name, author_name="NN"):
     """
@@ -73,8 +71,8 @@ def add_created_by(email_address, app_name, author_name="NN"):
         }}
         </style>
         <div class="created-by">
-            Created by: "NN" <br>
-            <a href="mailto:"Nicholas.nabholz@bexar.org"?subject=Feedback%20on%20{app_name}&body=Hello,%0A%0AI%20would%20like%20to%20provide%20feedback%20on%20the%20app%20{app_name}.%0A%0A" style="color: blue; text-decoration: none;">
+            Created by: {author_name} <br>
+            <a href="mailto:{email_address}?subject=Feedback%20on%20{app_name}&body=Hello,%0A%0AI%20would%20like%20to%20provide%20feedback%20on%20the%20app%20{app_name}.%0A%0A" style="color: blue; text-decoration: none;">
                 For support, please email me. Thanks!
             </a>
         </div>
