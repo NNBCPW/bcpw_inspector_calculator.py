@@ -48,12 +48,33 @@ if st.button("Calculate"):
 
     st.markdown(f"### Total Layer Thickness: {total_in_inches:.2f} inches ({total_in_feet:.2f} ft)")
     st.markdown(f"### Rod Reading: {rod_reading:.2f} ft")
-# Main app code
-st.title("Your Streamlit App")
+def add_created_by(email_address, app_name, author_name="NN"):
+    """
+    Adds a "Created by" section with an email link to a Streamlit app.
 
-# Add the footer
-add_created_by(
-    email_address="your_email@example.com",
-    app_name="Your Streamlit App",
-    author_name="NN"
-)
+    Args:
+        email_address (str): The email address to send feedback to.
+        app_name (str): The name of the app for use in the email subject and body.
+        author_name (str): The name of the app creator. Default is "NN".
+    """
+    st.markdown(
+        f"""
+        <style>
+        .created-by {{
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: gray;
+        }}
+        </style>
+        <div class="created-by">
+            Created by: {NN}<br>
+            <a href="mailto:{Nicholas.nabholz@bexar.org}?subject=Feedback%20on%20{app_name}&body=Hello,%0A%0AI%20would%20like%20to%20provide%20feedback%20on%20the%20app%20{app_name}.%0A%0A" style="color: blue; text-decoration: none;">
+                Please email me if you have questions, comments, or suggestions
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
